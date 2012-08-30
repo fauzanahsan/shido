@@ -6,13 +6,17 @@ gem 'rails', '3.2.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+
+# Authentication
 gem 'devise'
-gem "zurb-foundation", :group => :assets
-gem 'cancan'
+gem "cancan", ">= 1.6.7"
+gem "cancan_namespace"
+gem "rolify", ">= 3.1.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'zurb-foundation' 
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
