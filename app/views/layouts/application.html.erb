@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shido</title>
+  <title>GrowLokal | <%= @pageTitle or 'Page Title' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'jquery' %>
   <%= csrf_meta_tags %>
+
+  <%= yield :stylesheets %>
+  <%= yield :javascripts %>	
 </head>
 <body>
 
-<%= yield %>
+	<div class="row">
+       <% if notice %>
+       <div class='alert-box success'><%= notice %></div>
+       <% end %>
+
+       <% if alert %>
+       <div class='alert-box alert'><%= alert %></div>
+       <% end %>
+
+       <% if flash[:error] %>
+       <div class='alert-box error'><%= flash[:notice] %></div>
+       <% end %>
+
+       <%= yield %>
+     </div>
 
 </body>
 </html>

@@ -7,6 +7,7 @@ gem 'rails', '3.2.7'
 
 gem 'pg'
 
+
 # Authentication
 gem 'devise'
 gem "cancan", ">= 1.6.7"
@@ -16,7 +17,7 @@ gem "rolify", ">= 3.1.0"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'zurb-foundation' 
+  #gem 'zurb-foundation' 
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -26,7 +27,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "recaptcha", :require => "recaptcha/rails"
 gem 'jquery-rails'
+
+gem 'thin', :group => :development
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
