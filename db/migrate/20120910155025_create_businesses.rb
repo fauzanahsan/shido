@@ -1,0 +1,24 @@
+class CreateBusinesses < ActiveRecord::Migration
+  def change
+    create_table :businesses do |t|
+      t.string   :user_id        , :default => '', :null => false
+      t.string   :company_name   , :default => '', :null => false
+      t.string   :contact_person , :default => ''
+      t.text     :detail    , :default => ''
+      t.string   :office_phone1  , :default => ''
+      t.string   :office_phone2  , :default => ''
+      t.string   :mobile_phone1  , :default => ''
+      t.string   :mobile_phone2  , :default => ''
+      t.string   :region_id
+      t.string   :city_id
+      t.text     :address
+      
+      t.timestamps
+    end
+    add_index :businesses, :user_id
+  end
+  
+  def down
+    drop_table :businesses
+  end
+end

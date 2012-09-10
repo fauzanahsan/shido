@@ -123,7 +123,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_filter :check_admin_role
 
 
   # == Register Stylesheets & Javascripts
@@ -147,6 +147,14 @@ ActiveAdmin.setup do |config|
   # Set the CSV builder separator (default is ",")
   # config.csv_column_separator = ','
 end
+
+# ActiveAdmin::ResourceController.class_eval do
+#   protected
+# 
+#   def current_ability
+#     @current_ability ||= AdminAbility.new(current_admin_user)
+#   end
+# end
 
 module ActiveAdmin
   class BaseController
