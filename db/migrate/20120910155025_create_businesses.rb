@@ -2,6 +2,7 @@ class CreateBusinesses < ActiveRecord::Migration
   def change
     create_table :businesses do |t|
       t.string   :user_id        , :default => '', :null => false
+      t.string   :account_manager_id        , :default => '', :null => false
       t.string   :company_name   , :default => '', :null => false
       t.string   :contact_person , :default => ''
       t.text     :detail    , :default => ''
