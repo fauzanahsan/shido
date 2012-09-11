@@ -1,3 +1,5 @@
 class ProductionTask < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :order
+  
+  attr_accessible :staff_id, :task_name, :working_status, :completed_date
 end
