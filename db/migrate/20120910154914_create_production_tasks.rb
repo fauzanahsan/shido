@@ -1,5 +1,5 @@
 class CreateProductionTasks < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :production_tasks do |t|
       t.string   :staff_id          , :default => '', :null => false
       t.string   :order_id          , :default => '', :null => false
@@ -14,7 +14,7 @@ class CreateProductionTasks < ActiveRecord::Migration
     add_index :production_tasks, :staff_id
   end
   
-  def down
+  def self.down
     drop_table :production_tasks
   end
 end

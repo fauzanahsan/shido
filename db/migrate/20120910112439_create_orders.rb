@@ -1,5 +1,5 @@
 class CreateOrders < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :orders do |t|
       t.string   :sales_id          , :default => '', :null => false
       t.string   :user_id           , :default => '', :null => false
@@ -14,7 +14,7 @@ class CreateOrders < ActiveRecord::Migration
     add_index :orders, :user_id
   end
   
-  def down
+  def self.down
     drop_table :orders
   end
 end

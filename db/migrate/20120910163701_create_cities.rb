@@ -1,5 +1,5 @@
 class CreateCities < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :cities do |t|
       t.references :region
       t.string     :city_name        , :default => '', :null => false
@@ -8,7 +8,7 @@ class CreateCities < ActiveRecord::Migration
     end
   end
   
-  def down
+  def self.down
     drop_table :cities
   end
 end

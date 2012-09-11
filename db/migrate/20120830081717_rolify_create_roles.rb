@@ -1,5 +1,5 @@
 class RolifyCreateRoles < ActiveRecord::Migration
-  def change
+  def self.up
     create_table(:roles) do |t|
       t.string :name
       t.references :resource, :polymorphic => true
@@ -16,4 +16,10 @@ class RolifyCreateRoles < ActiveRecord::Migration
     add_index(:roles, [ :name, :resource_type, :resource_id ])
     add_index(:users_roles, [ :user_id, :role_id ])
   end
+  
+  def self.down
+    drop_table :roles
+    drop_table :users_roles
+  end
+  
 end

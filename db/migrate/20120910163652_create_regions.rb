@@ -1,5 +1,5 @@
 class CreateRegions < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :regions do |t|
       t.string   :region_name        , :default => '', :null => false
       
@@ -7,7 +7,7 @@ class CreateRegions < ActiveRecord::Migration
     end
   end
   
-  def down
+  def self.down
     drop_table :regions
   end
 end

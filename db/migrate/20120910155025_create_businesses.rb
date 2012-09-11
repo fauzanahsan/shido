@@ -1,5 +1,5 @@
 class CreateBusinesses < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :businesses do |t|
       t.string   :user_id             , :default => '', :null => false
       t.string   :account_manager_id  , :default => '', :null => false
@@ -20,7 +20,7 @@ class CreateBusinesses < ActiveRecord::Migration
     add_index :businesses, :account_manager_id
   end
   
-  def down
+  def self.down
     drop_table :businesses
   end
 end

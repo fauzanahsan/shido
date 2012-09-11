@@ -1,5 +1,5 @@
 class CreateCampaignTasks < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :campaign_tasks do |t|
       t.string   :staff_id          , :default => '', :null => false
       t.string   :order_id          , :default => '', :null => false
@@ -14,7 +14,7 @@ class CreateCampaignTasks < ActiveRecord::Migration
     add_index :campaign_tasks, :staff_id
   end
   
-  def down
+  def self.down
     drop_table :campaign_tasks
   end
 

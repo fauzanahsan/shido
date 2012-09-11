@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910164937) do
+ActiveRecord::Schema.define(:version => 20120911022413) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(:version => 20120910164937) do
 
   add_index "businesses", ["account_manager_id"], :name => "index_businesses_on_account_manager_id"
   add_index "businesses", ["user_id"], :name => "index_businesses_on_user_id"
+
+  create_table "campaign_packages", :force => true do |t|
+    t.string   "package_name",              :default => "", :null => false
+    t.string   "description"
+    t.integer  "fee",          :limit => 8, :default => 0
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
   create_table "campaign_tasks", :force => true do |t|
     t.string   "staff_id",       :default => "", :null => false
@@ -156,5 +164,13 @@ ActiveRecord::Schema.define(:version => 20120910164937) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "web_packages", :force => true do |t|
+    t.string   "package_name",              :default => "", :null => false
+    t.string   "description"
+    t.integer  "fee",          :limit => 8, :default => 0
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
 end
