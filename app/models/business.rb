@@ -1,3 +1,6 @@
 class Business < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :user
+  
+  attr_accessible :company_name, :contact_person, :detail, :office_phone1, :office_phone2, :mobile_phone1, :mobile_phone2,
+                  :region, :city, :address  
 end

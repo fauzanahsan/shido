@@ -10,8 +10,8 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string   :office_phone2       , :default => ''
       t.string   :mobile_phone1       , :default => ''
       t.string   :mobile_phone2       , :default => ''
-      t.string   :region_id
-      t.string   :city_id
+      t.string   :region
+      t.string   :city
       t.text     :address
       
       t.timestamps

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911022413) do
+ActiveRecord::Schema.define(:version => 20120911135019) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20120911022413) do
     t.string   "office_phone2",      :default => ""
     t.string   "mobile_phone1",      :default => ""
     t.string   "mobile_phone2",      :default => ""
-    t.string   "region_id"
-    t.string   "city_id"
+    t.string   "region"
+    t.string   "city"
     t.text     "address"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20120911022413) do
 
   add_index "businesses", ["account_manager_id"], :name => "index_businesses_on_account_manager_id"
   add_index "businesses", ["user_id"], :name => "index_businesses_on_user_id"
+
+  create_table "campaign_package_orders", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "campaign_package_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "campaign_packages", :force => true do |t|
     t.string   "package_name",              :default => "", :null => false
@@ -94,14 +101,29 @@ ActiveRecord::Schema.define(:version => 20120911022413) do
     t.datetime "updated_at",                 :null => false
   end
 
-  create_table "orders", :force => true do |t|
-    t.string   "sales_id",                  :default => "", :null => false
-    t.string   "user_id",                   :default => "", :null => false
-    t.string   "sales_status",              :default => "", :null => false
+  create_table "invoices", :force => true do |t|
+    t.string   "sales_id",                :default => "", :null => false
+    t.string   "user_id",                 :default => "", :null => false
+    t.string   "order_id",                :default => "", :null => false
     t.datetime "order_date"
-    t.integer  "fee",          :limit => 8, :default => 0
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "fee",        :limit => 8, :default => 0
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
+
+  add_index "invoices", ["order_id"], :name => "index_invoices_on_order_id"
+  add_index "invoices", ["sales_id"], :name => "index_invoices_on_sales_id"
+  add_index "invoices", ["user_id"], :name => "index_invoices_on_user_id"
+
+  create_table "orders", :force => true do |t|
+    t.string   "sales_id",                        :default => "", :null => false
+    t.string   "user_id",                         :default => "", :null => false
+    t.string   "account_manager_id"
+    t.string   "sales_status",                    :default => "", :null => false
+    t.datetime "order_date"
+    t.integer  "fee",                :limit => 8, :default => 0
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   add_index "orders", ["sales_id"], :name => "index_orders_on_sales_id"
@@ -164,6 +186,13 @@ ActiveRecord::Schema.define(:version => 20120911022413) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "web_package_orders", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "web_package_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "web_packages", :force => true do |t|
     t.string   "package_name",              :default => "", :null => false

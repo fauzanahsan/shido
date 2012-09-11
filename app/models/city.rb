@@ -1,3 +1,5 @@
 class City < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :region
+  
+  attr_accessible :city_name
 end

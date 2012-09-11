@@ -1,3 +1,5 @@
 class Invoice < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :order
+  
+  attr_accessible :sales_id, :user_id, :order_id, :order_date, :fee
 end
