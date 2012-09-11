@@ -4,7 +4,8 @@ class CreateProductionTasks < ActiveRecord::Migration
       t.string   :staff_id          , :default => '', :null => false
       t.string   :order_id          , :default => '', :null => false
       t.string   :task_name         , :default => '', :null => false
-      t.column   :working_status    , "ENUM('new','in progress','draft','revision','completed','cancel')"
+      # "ENUM('new','in progress','draft','revision','completed','cancel')"
+      t.string   :working_status    , :default => '', :null => false
       t.column   :completed_date    , :datetime 
       
       t.timestamps
