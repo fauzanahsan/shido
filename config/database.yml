@@ -52,4 +52,4 @@ production:
   database: shido_prod
   pool: 5
   username: shido
-  password:
+  password: pass123
