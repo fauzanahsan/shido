@@ -1,3 +1,3 @@
 class WebPackage < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :package_name, :description, :fee, :as => :admin
 end
