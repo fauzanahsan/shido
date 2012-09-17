@@ -148,13 +148,15 @@ ActiveAdmin.setup do |config|
   # config.csv_column_separator = ','
 end
 
-# ActiveAdmin::ResourceController.class_eval do
-#   protected
-# 
-#   def current_ability
-#     @current_ability ||= AdminAbility.new(current_admin_user)
-#   end
-# end
+
+ActiveAdmin::ResourceController.class_eval do
+  protected
+
+  def current_ability
+    @current_ability ||= AdminAbility.new(current_admin_user)
+  end
+  
+end
 
 module ActiveAdmin
   class BaseController

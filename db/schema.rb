@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(:version => 20120911135019) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "admin_users_roles", :id => false, :force => true do |t|
+    t.integer "admin_user_id"
+    t.integer "role_id"
+  end
+
   create_table "businesses", :force => true do |t|
     t.string   "user_id",            :default => "", :null => false
     t.string   "account_manager_id", :default => "", :null => false
@@ -179,13 +184,6 @@ ActiveRecord::Schema.define(:version => 20120911135019) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "users_roles", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "web_package_orders", :force => true do |t|
     t.integer  "order_id"
