@@ -25,5 +25,13 @@ class AdminAbility
     if admin_user.has_role? :sales
       can :manage, Order
     end
+    
+    if admin_user.has_role? :account_manager
+      can :manage, Order 
+      can :manage, Business
+      can :manage, CampaignTask
+      can :manage, ProductionTask
+      can :manage, User
+    end
   end
 end

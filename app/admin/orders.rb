@@ -1,4 +1,7 @@
 ActiveAdmin.register Order do
+  menu :if => proc{ current_admin_user.has_role? (:admin) }
+  menu :if => proc{ current_admin_user.has_role? (:sales) }
+  menu :if => proc{ current_admin_user.has_role? (:account_manager) }
   controller.authorize_resource
   
   filter :user_email, :as => :string, :label => 'User Email'
