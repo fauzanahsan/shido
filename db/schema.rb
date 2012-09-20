@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20120911135019) do
     t.integer "role_id"
   end
 
+  add_index "admin_users_roles", ["admin_user_id", "role_id"], :name => "index_admin_users_roles_on_admin_user_id_and_role_id"
+
   create_table "businesses", :force => true do |t|
     t.string   "user_id",            :default => "", :null => false
     t.string   "account_manager_id", :default => "", :null => false

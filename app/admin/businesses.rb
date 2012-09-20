@@ -3,4 +3,5 @@ ActiveAdmin.register Business do
               proc{ current_admin_user.has_role? (:account_manager) }
   controller.authorize_resource
   
+  
 end
