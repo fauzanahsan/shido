@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
   has_many :production_task
   has_many :campaign_task
   
-  attr_accessible :user_id, :sales_id, :account_manager_id, :sales_status, :order_date, :fee, :as => :admin
+  attr_accessible :user_id, :sales_id, :account_manager_id, :sales_status, :order_date, :fee #, :as => :admin
   
   
 end
