@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120922025635) do
+ActiveRecord::Schema.define(:version => 20120922151728) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -64,6 +64,13 @@ ActiveRecord::Schema.define(:version => 20120922025635) do
 
   add_index "admin_users_admin_roles", ["admin_user_id", "admin_role_id"], :name => "index_on_admin_users_admin_roles"
 
+  create_table "business_categories", :id => false, :force => true do |t|
+    t.integer "business_id"
+    t.integer "category_id"
+  end
+
+  add_index "business_categories", ["business_id", "category_id"], :name => "index_business_categories_on_business_id_and_category_id"
+
   create_table "businesses", :force => true do |t|
     t.string   "user_id",            :default => "", :null => false
     t.string   "account_manager_id", :default => "", :null => false
@@ -111,6 +118,14 @@ ActiveRecord::Schema.define(:version => 20120922025635) do
 
   add_index "campaign_tasks", ["order_id"], :name => "index_campaign_tasks_on_order_id"
   add_index "campaign_tasks", ["staff_id"], :name => "index_campaign_tasks_on_staff_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name"
 
   create_table "cities", :force => true do |t|
     t.integer  "region_id"
@@ -193,6 +208,8 @@ ActiveRecord::Schema.define(:version => 20120922025635) do
     t.datetime "locked_at"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "fullname",               :default => ""
+    t.string   "phone",                  :default => ""
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

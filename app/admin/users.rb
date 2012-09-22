@@ -8,8 +8,9 @@ ActiveAdmin.register User do
   filter :created_at
   
   index do
-    column :id
     column :email
+    column :fullname
+    column :phone
     column :sign_in_count
     column :current_sign_in_at
     column :current_sign_in_ip
@@ -19,7 +20,9 @@ ActiveAdmin.register User do
   
   form do |f|                         
     f.inputs "Users Details" do       
-      f.input :email                  
+      f.input :email
+      f.input :fullname
+      f.input :phone               
       f.input :password               
       f.input :password_confirmation
     end                               
