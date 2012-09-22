@@ -1,10 +1,10 @@
 class AdminUser < ActiveRecord::Base
+  rolify :role_cname => 'AdminRole'
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  rolify
   
-  ROLES = ['admin', 'sales', 'account_manager']
+  ROLES = [:admin, :sales, :account_manager]
   
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
