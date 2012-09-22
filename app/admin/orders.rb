@@ -1,11 +1,7 @@
 ActiveAdmin.register Order do
-  # menu :if => proc{ current_admin_user.has_role? (:admin) } || proc{ current_admin_user.has_role? (:sales) } ||
-  #               proc{ current_admin_user.has_role? (:account_manager) }
-  menu :if => proc{ 
-                    proc { current_admin_user.has_role?("Admin") } || 
-                    proc { current_admin_user.has_role? ("Account Manager") } 
-                  }
-  controller.authorize_resource
+  controller.authorize_resource 
+  #menu :if => proc{ can?(:manage, Order)  }
+  #menu :if => proc{ current_admin_user.has_role? ("Account Manager")  }
   
   filter :user_email, :as => :string, :label => 'User Email'
   filter :sales_status, :as => :select, :collection => ["new","pending","paid","cancel","problem"]

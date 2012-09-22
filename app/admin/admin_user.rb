@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
-  menu :label => "Staff", :if => proc{ current_admin_user.has_role? ("Admin") } 
+  menu :label => "Staffs", :if => proc{ current_admin_user.has_role? ("Admin") }
+ 
   controller.authorize_resource
        
   index do                            

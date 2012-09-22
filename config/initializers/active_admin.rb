@@ -92,7 +92,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
+  #config.root_to = 'orders#index'
 
   # == Admin Comments
   #
@@ -123,7 +123,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources from here.
   #
-  # config.before_filter :check_admin_role
+  #config.before_filter :authorize_resource
 
 
   # == Register Stylesheets & Javascripts
@@ -150,10 +150,17 @@ end
 
 
 ActiveAdmin::ResourceController.class_eval do
+  skip_load_resource :only => :index
+  authorize_resource 
+  
   protected
 
   def current_ability
     @current_ability ||= AdminAbility.new(current_admin_user)
+  end
+  
+  rescue_from CanCan::AccessDenied do |exception|
+      redirect_to admin_dashboard_path, :alert => exception.message
   end
   
 end
