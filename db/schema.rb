@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911135019) do
+ActiveRecord::Schema.define(:version => 20120922025635) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(:version => 20120911135019) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "admin_roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "admin_roles", ["name", "resource_type", "resource_id"], :name => "index_admin_roles_on_name_and_resource_type_and_resource_id"
+  add_index "admin_roles", ["name"], :name => "index_admin_roles_on_name"
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -46,12 +57,12 @@ ActiveRecord::Schema.define(:version => 20120911135019) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "admin_users_roles", :id => false, :force => true do |t|
+  create_table "admin_users_admin_roles", :id => false, :force => true do |t|
     t.integer "admin_user_id"
-    t.integer "role_id"
+    t.integer "admin_role_id"
   end
 
-  add_index "admin_users_roles", ["admin_user_id", "role_id"], :name => "index_admin_users_roles_on_admin_user_id_and_role_id"
+  add_index "admin_users_admin_roles", ["admin_user_id", "admin_role_id"], :name => "index_on_admin_users_admin_roles"
 
   create_table "businesses", :force => true do |t|
     t.string   "user_id",            :default => "", :null => false
@@ -186,6 +197,13 @@ ActiveRecord::Schema.define(:version => 20120911135019) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "users_roles", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "web_package_orders", :force => true do |t|
     t.integer  "order_id"

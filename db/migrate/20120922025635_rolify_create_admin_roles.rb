@@ -1,5 +1,5 @@
 class RolifyCreateAdminRoles < ActiveRecord::Migration
-  def change
+  def up
     create_table(:admin_roles) do |t|
       t.string :name
       t.references :resource, :polymorphic => true
@@ -14,6 +14,15 @@ class RolifyCreateAdminRoles < ActiveRecord::Migration
 
     add_index(:admin_roles, :name)
     add_index(:admin_roles, [ :name, :resource_type, :resource_id ])
-    add_index(:admin_users_admin_roles, [ :admin_user_id, :admin_role_id ])
+    add_index(:admin_users_admin_roles, [ :admin_user_id, :admin_role_id ], :name => 'index_on_admin_users_admin_roles')
+    
+    AdminRole.create :name => "Admin"
+    AdminRole.create :name => "Sales"
+    AdminRole.create :name => "Account Manager"
+  end
+  
+  def down
+    drop_table :admin_roles
+    drop_table :admin_users_admin_roles
   end
 end

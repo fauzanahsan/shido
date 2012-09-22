@@ -17,16 +17,17 @@ class AdminAbility
     #can :read, SomeOtherModel
 
     # A moderator can do the following:
-    if admin_user.has_role? :admin
+    if admin_user.has_role? "Admin"
       can :manage, :all
+      can :manage, Business
     end
 
     # A manager can do the following:
-    if admin_user.has_role? :sales
+    if admin_user.has_role? "Sales"
       can :manage, Order
     end
     
-    if admin_user.has_role? :account_manager
+    if admin_user.has_role? "Account Manager"
       can :manage, Order 
       can :manage, Business
       can :manage, CampaignTask

@@ -4,7 +4,7 @@ class AdminUser < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   
-  ROLES = [:admin, :sales, :account_manager]
+  ROLES = ["Admin", "Sales", "Account Manager"]
   
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
