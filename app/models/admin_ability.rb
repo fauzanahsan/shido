@@ -19,7 +19,6 @@ class AdminAbility
     # A moderator can do the following:
     if admin_user.has_role? "Admin"
       can :manage, :all
-      can :manage, Business
     end
 
     # A manager can do the following:

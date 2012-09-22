@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
-  # menu :if => proc{ current_admin_user.has_role? (:admin) } ||
-  #               proc{ current_admin_user.has_role? (:account_manager) }
-  menu :if => proc{ can?(:manage, User)  }
+  menu :if => proc{ 
+                    proc { current_admin_user.has_role?("Admin") } 
+                  }
   controller.authorize_resource
   
   filter :email
