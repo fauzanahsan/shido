@@ -4,13 +4,41 @@ ActiveAdmin.register Business do
  
   controller.authorize_resource
   
+  filter :user, :as => :select, :collection => Hash[User.all.map{|u| [u.email,u.id]}]   
+  filter :company_name
+  filter :biz_name, :label => 'Business Name'
+  filter :contact_person
+  filter :detail
+  filter :products_services
+  filter :office_phone1
+  filter :office_phone2
+  filter :mobile_phone1
+  filter :mobile_phone2
+  filter :region
+  filter :city
+  
+  
+  index do
+    column :company_name
+    column("Business Name", :biz_name)
+    column("User") { |business| business.user.email }
+    column :office_phone1
+    column :mobile_phone1
+    column :contact_person
+    column :city
+    column :created_at
+    default_actions
+  end
+  
   form do |f| 
     f.inputs do                        
       f.input :user_id, :as => :select,      :collection => Hash[User.all.map{|u| [u.email,u.id]}]   
       f.input :account_manager_id, :as => :select,      :collection => Hash[AdminUser.all.map{|a| [a.email,a.id]}]  
       f.input :company_name
+      f.input :biz_name, :label => "Business Name (Identifier)"
       f.input :contact_person
-      f.input :detail
+      f.input :detail, :label => "Business Description"
+      f.input :products_services, :label => "Products & Services"
       f.input :office_phone1, :label => "Office Phone 1" 
       f.input :office_phone2, :label => "Office Phone 2"
       f.input :mobile_phone1, :label => "Mobile Phone 1"

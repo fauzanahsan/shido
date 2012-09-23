@@ -1,8 +1,4 @@
 ActiveAdmin.register_page "Dashboard" do
-  # controller do
-  #       skip_load_resource :only => :index
-  #       authorize_resource :only => :index
-  #    end
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") } #, :if => proc{ current_admin_user.has_role? ("Admin") }
 
   content :title => proc{ I18n.t("active_admin.dashboard") } do
