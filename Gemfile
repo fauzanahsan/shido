@@ -14,6 +14,7 @@ gem 'devise'
 gem "cancan", ">= 1.6.7"
 gem "cancan_namespace"
 gem "rolify", ">= 3.1.0"
+gem "gmaps4rails"
 
 # Gems used only for assets and not required
 # in production environments by default.

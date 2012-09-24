@@ -89,8 +89,9 @@ ActiveRecord::Schema.define(:version => 20120924115552) do
     t.string   "biz_name",           :default => ""
     t.text     "products_services",  :default => ""
     t.string   "website",            :default => ""
-    t.string   "lat",                :default => ""
-    t.string   "long",               :default => ""
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   add_index "businesses", ["account_manager_id"], :name => "index_businesses_on_account_manager_id"
