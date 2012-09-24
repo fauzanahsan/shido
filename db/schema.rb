@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924115552) do
+ActiveRecord::Schema.define(:version => 20120924161614) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(:version => 20120924115552) do
   end
 
   add_index "business_categories", ["business_id", "category_id"], :name => "index_business_categories_on_business_id_and_category_id"
+
+  create_table "business_photos", :force => true do |t|
+    t.integer  "business_id"
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "businesses", :force => true do |t|
     t.string   "user_id",            :default => "", :null => false
