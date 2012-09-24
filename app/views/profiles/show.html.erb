@@ -1,0 +1,42 @@
+<h2>Business Details</h2>
+
+<% if @business %>
+<div class="twelve columns">
+	<h4><%= @business.company_name %></h4>
+	<p>Contact Info</p>
+	<table>
+		<tr>
+			<td>Address</td>
+			<td><%= "#{@business.address}, #{@business.city}, #{@business.region}" %></td>
+		</tr>
+		<tr>
+			<td>MAP</td>
+			<td>MAP</td>
+		</tr>
+		<tr>
+			<td>Phone</td>
+			<td><%= @business.office_phone1 %></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><%= @business.user.email %></td>
+		</tr>
+	</table>
+	<br />
+	<p>About Us</p>
+	<table>
+		<tr>
+			<td>Products & Services</td>
+			<td><%= @business.products_services %></td>
+		</tr>
+		<tr>
+			<td>Business Description</td>
+			<td><%= @business.detail %></td>
+		</tr>
+		<tr>
+			<td>Photo</td>
+		</tr>
+	</table>
+</div>
+
+<% end %>

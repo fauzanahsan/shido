@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923160131) do
+ActiveRecord::Schema.define(:version => 20120924115552) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -88,6 +88,9 @@ ActiveRecord::Schema.define(:version => 20120923160131) do
     t.datetime "updated_at",                         :null => false
     t.string   "biz_name",           :default => ""
     t.text     "products_services",  :default => ""
+    t.string   "website",            :default => ""
+    t.string   "lat",                :default => ""
+    t.string   "long",               :default => ""
   end
 
   add_index "businesses", ["account_manager_id"], :name => "index_businesses_on_account_manager_id"
