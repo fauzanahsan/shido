@@ -1,8 +1,8 @@
 class CreateCampaignTasks < ActiveRecord::Migration
   def self.up
     create_table :campaign_tasks do |t|
-      t.string   :staff_id          , :default => '', :null => false
-      t.string   :order_id          , :default => '', :null => false
+      t.integer   :staff_id          , :default => nil
+      t.integer   :order_id          , :null => false
       t.string   :task_name         , :default => '', :null => false
       # "ENUM('new','in progress','draft','revision','completed','cancel')"
       t.string   :working_status    , :default => '', :null => false 

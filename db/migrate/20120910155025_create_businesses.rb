@@ -1,8 +1,8 @@
 class CreateBusinesses < ActiveRecord::Migration
   def self.up
     create_table :businesses do |t|
-      t.string   :user_id             , :default => '', :null => false
-      t.string   :account_manager_id  , :default => '', :null => false
+      t.integer   :user_id             , :null => false
+      t.integer   :account_manager_id  , :default => nil
       t.string   :company_name        , :default => '', :null => false
       t.string   :contact_person      , :default => ''
       t.text     :detail              , :default => ''

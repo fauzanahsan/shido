@@ -15,6 +15,9 @@ ActiveAdmin.register User do
     column :current_sign_in_at
     column :current_sign_in_ip
     column :created_at
+    column("Action") { |user| 
+                        link_to('Sign in', signin_as_admin_user_path(user.id, :protocol => "https"), :method => :put) 
+                     }
     default_actions
   end
   
@@ -29,4 +32,8 @@ ActiveAdmin.register User do
     f.buttons                         
   end
   
+  member_action :signin_as, :method => :put do
+    sign_in(:user, User.find(params[:id]), :bypass => true)
+    redirect_to root_url
+  end
 end

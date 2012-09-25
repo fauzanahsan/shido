@@ -1,9 +1,9 @@
 class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders do |t|
-      t.string   :sales_id          , :default => '', :null => false
-      t.string   :user_id           , :default => '', :null => false
-      t.string   :account_manager_id           
+      t.integer   :sales_id          , :default => nil
+      t.integer   :user_id           , :null => false
+      t.integer   :account_manager_id           
       #"ENUM('new','pending','paid','cancel', 'problem')"
       t.string   :sales_status      , :default => '', :null => false
       t.column   :order_date        , :datetime 

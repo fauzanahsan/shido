@@ -1,9 +1,9 @@
 class CreateInvoices < ActiveRecord::Migration
   def self.up
     create_table :invoices do |t|
-      t.string   :sales_id          , :default => '', :null => false
-      t.string   :user_id           , :default => '', :null => false
-      t.string   :order_id          , :default => '', :null => false
+      t.integer   :sales_id          , :default => nil
+      t.integer   :user_id           , :null => false
+      t.integer   :order_id          , :null => false
       
       t.column   :order_date        , :datetime 
       t.column   :fee               , :bigint, :default => 0

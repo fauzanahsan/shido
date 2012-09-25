@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   end
 
   create_table "businesses", :force => true do |t|
-    t.string   "user_id",            :default => "", :null => false
-    t.string   "account_manager_id", :default => "", :null => false
+    t.integer  "user_id",                            :null => false
+    t.integer  "account_manager_id"
     t.string   "company_name",       :default => "", :null => false
     t.string   "contact_person",     :default => ""
     t.text     "detail",             :default => ""
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   end
 
   create_table "campaign_tasks", :force => true do |t|
-    t.string   "staff_id",       :default => "", :null => false
-    t.string   "order_id",       :default => "", :null => false
+    t.integer  "staff_id"
+    t.integer  "order_id",                       :null => false
     t.string   "task_name",      :default => "", :null => false
     t.string   "working_status", :default => "", :null => false
     t.datetime "completed_date"
@@ -149,13 +149,13 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   end
 
   create_table "invoices", :force => true do |t|
-    t.string   "sales_id",                :default => "", :null => false
-    t.string   "user_id",                 :default => "", :null => false
-    t.string   "order_id",                :default => "", :null => false
+    t.integer  "sales_id"
+    t.integer  "user_id",                                :null => false
+    t.integer  "order_id",                               :null => false
     t.datetime "order_date"
     t.integer  "fee",        :limit => 8, :default => 0
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   add_index "invoices", ["order_id"], :name => "index_invoices_on_order_id"
@@ -163,9 +163,9 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   add_index "invoices", ["user_id"], :name => "index_invoices_on_user_id"
 
   create_table "orders", :force => true do |t|
-    t.string   "sales_id",                        :default => "", :null => false
-    t.string   "user_id",                         :default => "", :null => false
-    t.string   "account_manager_id"
+    t.integer  "sales_id"
+    t.integer  "user_id",                                         :null => false
+    t.integer  "account_manager_id"
     t.string   "sales_status",                    :default => "", :null => false
     t.datetime "order_date"
     t.integer  "fee",                :limit => 8, :default => 0
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "production_tasks", :force => true do |t|
-    t.string   "staff_id",       :default => "", :null => false
-    t.string   "order_id",       :default => "", :null => false
+    t.integer  "staff_id"
+    t.integer  "order_id",                       :null => false
     t.string   "task_name",      :default => "", :null => false
     t.string   "working_status", :default => "", :null => false
     t.datetime "completed_date"

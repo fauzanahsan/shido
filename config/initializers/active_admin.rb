@@ -150,8 +150,6 @@ end
 
 
 ActiveAdmin::ResourceController.class_eval do
-  skip_load_resource :only => :index
-  authorize_resource 
   
   protected
 
