@@ -12,8 +12,8 @@ class Business < ActiveRecord::Base
 
 
   def gmaps4rails_address
-    #"#{self.address}, #{self.city}, #{self.region}" 
-    address
+    "#{self.address}, #{self.city}, #{self.region}" 
+    #address
   end
   
                   
