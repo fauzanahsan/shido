@@ -1,0 +1,21 @@
+<%= form_for @business_photo, :url => profile_business_photos_path do |f| %>
+  <% if @business_photo.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@business_photo.errors.count, "error") %> errors caused:</h2>
+       <ul>
+       <% @business_photo.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+       </ul>
+     </div>
+  <% end %>
+  <%= f.hidden_field :business_id %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,5 +1,13 @@
 <h3>Dashboard</h3>
  
+<p>Hello <%= current_user.email %></p>
 
+<% if !current_user.businesses.blank? %>
+	<p>Your Business</p>
+	<% current_user.businesses.each do |business| -%>
+		<%= link_to("#{business.company_name}", profile_path(business.biz_name)) %><br />
+	<% end %>
+<% end %>
 
+<br />
 <%= link_to('Log off', destroy_user_session_path, :method => :delete) %>

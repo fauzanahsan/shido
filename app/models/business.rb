@@ -16,5 +16,13 @@ class Business < ActiveRecord::Base
     #address
   end
   
+  def own_business?(user_id)
+    self.user_id == user_id
+  end
+  
+  def manage_business?(account_manager_id)
+    self.account_manager_id == account_manager_id
+  end
+  
                   
 end

@@ -16,7 +16,7 @@ ActiveAdmin.register User do
     column :current_sign_in_ip
     column :created_at
     column("Action") { |user| 
-                        link_to('Sign in', signin_as_admin_user_path(user.id, :protocol => "https"), :method => :put) 
+                        button_to('Sign in', signin_as_admin_user_path(user.id, :protocol => "https"), :method => :put) 
                      }
     default_actions
   end

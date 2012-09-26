@@ -1,6 +1,24 @@
 <h2>Business Details</h2>
 
 <% if @business %>
+	<% if current_user && @business.own_business?(current_user.id) %>
+		<%= link_to("Add Photo", new_profile_business_photo_path(:profile_id => @business.id)) %>
+	<% end %>
+	
+<div id="biz_photos">
+  <% for business_photo in @business.business_photos %>
+    <div class="biz_photo">
+      <%= image_tag business_photo.image_url(:thumb) if business_photo.image? %>
+      <div class="name"><%= business_photo.name %></div>
+      <div class="actions">
+        <%= link_to "edit", edit_profile_business_photo_path(business_photo) %> |
+        <%#= link_to "remove", profile_business_photos, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+	
 <div class="twelve columns">
 	<h4><%= @business.company_name %></h4>
 	<p>Contact Info</p>
