@@ -18,6 +18,9 @@ gem "rolify", ">= 3.1.0"
 gem "gmaps4rails"
 gem "rmagick"
 gem "carrierwave"
+gem "rails3-jquery-autocomplete"
+
+gem "autocomplete-off"
 
 
 # Gems used only for assets and not required

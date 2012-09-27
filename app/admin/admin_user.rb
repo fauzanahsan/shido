@@ -25,5 +25,10 @@ ActiveAdmin.register AdminUser do
       end  
     end                               
     f.buttons                         
-  end                                 
+  end 
+  
+  controller do
+    autocomplete :admin_user, :email #, :full => true
+  end
+                                  
 end                                   

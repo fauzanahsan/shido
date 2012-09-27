@@ -1,4 +1,11 @@
 Shido::Application.routes.draw do
+  
+  namespace 'admin' do
+    resources :admin_users, :only => [] do
+      get :autocomplete_admin_user_email, :on => :collection
+    end
+  end
+  
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
