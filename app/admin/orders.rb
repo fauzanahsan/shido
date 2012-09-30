@@ -4,10 +4,24 @@ ActiveAdmin.register Order do
   #menu :else => proc{ current_admin_user.has_role? ("Admin")  }
   
   filter :user_email, :as => :string, :label => 'User Email'
+  #filter :user_fullname, :as => :string, :label => 'User Fullname'
   filter :sales_status, :as => :select, :collection => ["new","pending","paid","cancel","problem"]
   filter :order_date
+  #filter :sales_id, :as => :select, :collection => AdminUser.all 
+  filter :web_packages_package_name, :as => :select, :collection => WebPackage.all.collect {|w| [w.package_name, w.package_name]}
+  filter :campaign_packages_package_name, :as => :select, :collection => CampaignPackage.all.collect {|c| [c.package_name, c.package_name]}
   
-  
+  index do
+    column("Order ID", :id)
+    column("User"){|order| order.user.email }
+    column :sales_status
+    column ("Sales") {|order| order.sales_id.blank? ? "" : AdminUser.find(order.sales_id).email }
+    column ("Account Manager") {|order| order.account_manager_id.blank? ? "" : AdminUser.find(order.account_manager_id).email }
+    column("Fee")  {|order| number_to_currency order.fee }
+    column :created_at
+    column :updated_at
+    default_actions
+  end
   
   form do |f|                         
     f.inputs "Order Details" do
