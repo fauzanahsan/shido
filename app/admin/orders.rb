@@ -23,6 +23,41 @@ ActiveAdmin.register Order do
     default_actions
   end
   
+  show do |order|
+    attributes_table do
+      row :id
+      row :sales_status
+      row :user do
+        order.user.email
+      end
+      
+      row :sales do
+        order.sales_id.blank? ? "" : AdminUser.find(order.sales_id).email 
+      end
+      
+      row :account_manager do
+        order.account_manager_id.blank? ? "" : AdminUser.find(order.account_manager_id).email
+      end
+      
+      row :web_package do
+        order.web_packages.blank? ? "" : order.web_packages.all.collect {|w| w.package_name}
+      end
+      
+      row :campaign_package do
+        order.campaign_packages.blank? ? "" : order.campaign_packages.all.collect {|w| w.package_name}
+      end
+      
+      row :fee do
+        number_to_currency order.fee
+      end
+      
+      row :created_at
+      row :updated_at
+      
+    end
+    active_admin_comments
+  end
+  
   form do |f|                         
     f.inputs "Order Details" do
       if f.object.new_record?
