@@ -13,4 +13,7 @@ class AdminUser < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids #, :as => :admin
   # attr_accessible :title, :body
   
+  def account_manager
+    self.has_role? ("Account Manager")
+  end
 end
