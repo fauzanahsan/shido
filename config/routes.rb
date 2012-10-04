@@ -6,7 +6,7 @@ Shido::Application.routes.draw do
     end
   end
   
-  ActiveAdmin.routes(self)
+  #ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
