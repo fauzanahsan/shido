@@ -48,11 +48,20 @@ namespace :deploy do
     end
   end
   
+  # namespace :assets do
+  #     task :precompile, roles: :web, :except => { :no_release => true } do
+  #       run "cd #{current_path} && #{rake} RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile --trace"
+  #     end
+  #   end
+  
   namespace :assets do
-    task :precompile, roles: :web, :except => { :no_release => true } do
-      run "cd #{current_path} && #{rake} RAILS_ENV=#{rails_env} RAILS_GROUPS=assets assets:precompile --trace"
+      desc 'Run the precompile task locally and rsync with shared'
+      task :precompile, :roles => :web, :except => { :no_release => true } do
+        %x{bundle exec rake assets:precompile}
+        %x{rsync --recursive --times --rsh=ssh --compress --human-readable --progress public/assets #{user}@#{host}:#{shared_path}}
+        %x{bundle exec rake assets:clean}
+      end
     end
-  end
   
   before "deploy", "deploy:check_revision"
 end
