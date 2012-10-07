@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_directory ./jquery-ui
+//= require_self
 //= require_directory ./foundation
-//= require_tree .
+//= require_directory ./gmaps4rails
+//= require ../../../vendor/assets/javascripts/jquery-ui/jquery-ui-1.8.22.custom.min.js
+//= require ../../../vendor/assets/javascripts/jquery-ui/jquery.ui.widget.js
+//= require ../../../vendor/assets/javascripts/jquery-ui/jquery.ui.position.js
+//= require ../../../vendor/assets/javascripts/jquery-ui/jquery.ui.tooltip.js
+//= require ../../../vendor/assets/javascripts/jquery-datetime-picker.js
