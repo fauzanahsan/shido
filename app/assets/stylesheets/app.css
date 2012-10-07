@@ -1,0 +1,261 @@
+/* Artfully masterminded by ZURB  */
+
+/* -----------------------------------------
+   Color Legend
+----------------------------------------- */
+/* 
+
+GL Blue #265b9e
+GL Orange #ff7700
+*/
+
+
+/* -----------------------------------------
+   Global
+----------------------------------------- */
+body {
+	background: #265b9e;
+	color: #efefef;
+}
+body,p,li,a.button {
+	font-family: "facitweb",sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 15px;
+}
+a.button {
+	font-weight: 400;
+}
+h1,h2,h3,h4,h5 {
+	color: #fff;
+	font-weight: normal;
+}
+a.underline {
+	text-decoration: underline;
+}
+a.underline:hover {
+	text-decoration: none;
+}
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+Header {
+}
+.logo a {
+	display: block;
+	width: 240px;
+	height: 162px;
+	background: url(growlokal-logo.png) no-repeat;
+}
+.hide-text {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+/* -----------------------------------------
+   Navigation
+----------------------------------------- */
+.nav {
+	padding: 50px 0 10px 0;
+}
+.nav li {
+	list-style: none;
+	float: left;
+	margin-right: 30px;
+	font-size: 2em;
+}
+/* -----------------------------------------
+   Home Sections
+----------------------------------------- */
+h2 {
+	font-size: 4em;
+}
+h3 {
+	font-size: 2.5em;
+	padding: 0 0 20px 0;
+	color: #efefef;
+}
+/*.home-section-start-business h3,.home-section-start-business p {
+	color: #333;
+} */
+.home-section-start-business {
+	background: #FF7700;
+}
+.home-section-why {
+	padding: 45px 0;
+	background: #333 url(footer-pattern.png);;
+	border-top: 1px solid #ffc99a;
+	border-bottom: 1px solid #5a89c4;
+}
+.home-section-main .row {
+	background: url(figure-main.png) right bottom no-repeat;
+	padding: 35px 0px 35px 0;
+}
+.home-section-start-business .row {
+	background: url(figure-buysell.png) right no-repeat;
+	padding: 50px 0px 50px 0;
+}
+.home-section-why .row {
+	background: url(figure-why.png) left no-repeat;
+	padding: 85px 0px 85px 0;
+}
+.home-section-main .row .inner {
+	padding-right: 500px;
+}
+.home-section-start-business .row .inner {
+	padding-right: 400px;
+}
+.home-section-why .row .inner {
+	padding-left: 400px;
+}
+.home-section-main li {
+	list-style-image: url(icon-check.png);
+}
+/* -----------------------------------------
+   Sidebar
+----------------------------------------- */
+.sidebar {
+	width: 320px-;
+}
+/* -----------------------------------------
+   Packages
+----------------------------------------- */
+.home-section-package.odd {
+	padding: 70px 0 35px 0 	
+}
+.home-section-package.even {
+	padding: 35px 0 70px 0 	
+}
+
+ul.package li {
+	list-style: none;
+	float: left;
+	margin-right: 40px;
+}
+.package a {
+	display: block;
+	width: 150px;
+	border: 1px solid #336ab0;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	color: #fff
+}
+.package a:hover {
+	border: 1px solid #396516;
+	background: #ff7700;/*#5DA423*/ /*#1b5092*/
+}
+.package a span {
+	display: block;
+	height: 130px;
+}
+.package-dir span {
+	background: url(icons-packages.png) 7px -126px no-repeat;
+}
+.package-web-std span {
+	background: url(icons-packages.png) 7px -256px no-repeat;
+}
+.package-e-comm span {
+	background: url(icons-packages.png) 7px -376px no-repeat;
+}
+.package-dir span:hover {
+	background: url(icons-packages.png) -164px -126px no-repeat;
+}
+.package-web-std span:hover {
+	background: url(icons-packages.png) -164px -256px no-repeat;
+}
+.package-e-comm span:hover {
+	background: url(icons-packages.png) -164px -376px no-repeat;
+}
+
+/* -----------------------------------------
+   Start Create Web
+----------------------------------------- */
+.start-create-web p {
+	padding-left: 140px;
+	background: url(icon-create-web.png) left top no-repeat;
+}
+/* -----------------------------------------
+   Marketing
+----------------------------------------- */
+ul.marketing {
+	margin: 0;
+	padding: 0;
+}
+.marketing li {
+	float: left;
+	margin-right: 40px;
+	width: 140px;
+	list-style: none;
+	border: 0px dotted;
+}
+.marketing li li {
+	list-style-image: url(icon-next.png);
+	margin: 0;
+}
+/* -----------------------------------------
+   Footer
+----------------------------------------- */
+
+footer {
+	border-top: 1px solid #5a89c4;
+	padding: 50px 0 20px 0;
+	background: #202020 url(footer-pattern.png);
+}
+footer p,footer li {
+	font-size: 14px;
+	color: #ccc;
+}
+.footer-contact-form {
+	width: 280px;
+	background: #efefef;
+	padding: 20px 20px 10px 20px;
+	border-radius: 5px;
+}
+.footer-support li {
+	list-style: none;
+	list-style-position: inside;
+	padding: 10px 40px 15px 40px;
+	margin: 0 0 15px 0;
+}
+.footer-support li.icon-call {
+	background: url(icon-call.png) left no-repeat;
+}
+.footer-support li.icon-skype {
+	background: url(icon-skype.png) left no-repeat;
+}
+.footer-support li.icon-twitter {
+	background: url(icon-twitter.png) left no-repeat;
+}
+.footer-support li.icon-fb {
+	background: url(icon-fb.png) left no-repeat;
+}
+.row.copyright {
+	padding: 40px 10px 0 10px
+}
+.copyright p {
+	font-size: 12px;
+	color: #ccc;
+}
+/* -----------------------------------------
+   Modal Window
+----------------------------------------- */
+.reveal-modal,.reveal-modal h3,.reveal-modal h4 {
+	color: #333;
+}
+.reveal-modal ul {
+	padding-top: 15px;
+}
+.price {
+	font-size: 2em;
+}
+
+.reveal-modal li {
+	font-size: 12px;
+	list-style: none;
+	border-bottom: 1px dotted #ccc;
+	padding: 5px 0;
+}
+.package-modal .column, .package-modal .columns {
+	padding: 0 10px 0 0;
+}

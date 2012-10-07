@@ -1,9 +1,324 @@
-<h1>GrowLokal</h2>
+<!-- <h1>GrowLokal</h2>
  
  
 <p>Selamat Datang</p>
 
 <p align="center">
-    <%= link_to('Sign In', new_user_session_path, :method => :get) %> <br />
-	<%= link_to('Sign Up', new_user_registration_path, :method => :get) %>
-</p>
+    <%#= link_to('Sign In', new_user_session_path, :method => :get) %> <br />
+	<%#= link_to('Sign Up', new_user_registration_path, :method => :get) %>
+</p> -->
+
+<header class="row">
+  <div class="four columns">
+    <div class="logo"><a class="hide-text" href="">GrowLokal</a></div>
+  </div>
+  <div class="eight columns">
+    <div class="nav">
+      <ul>
+        <li><a href="#stop1" title="">Home</a></li>
+        <li><a href="#stop2" title="">Mulai Bisnis</a></li>
+        <li><a href="#stop4" title="">Layanan &amp; Harga</a></li>
+        <li><a href="#stop5" title="">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="content">
+<div id="stop1" class="home-section-main">
+  <div class="row">
+    <div class="inner">
+      <h2 class="headline">Temukan cara mengembangkan bisnis di internet secara 
+      mudah &amp; cepat!</h2>
+      <p>Solusi internet marketing untuk pemilik bisnis usaha kecil dan menengah (UKM)</p>
+      <ul>
+        <li>Website dengan harga terjangkau</li>
+        <li>Alamat website sesuai pilihan Anda</li>
+        <li>Panduan optimasi kontent website</li>
+        <li>Solusi Internet Marketing sesuai <br>kebutuhan &amp; anggaran</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="stop2" class="home-section-start-business">
+  <div class="row">
+    <div class="inner">
+      <h3>Buat Website Bisnis Anda Sekarang!</h3>
+      <p>Ketika calon pelanggan Anda asik mengakses internet, apakah mereka bisa menemukan bisnis Anda? Seharusnya, ya!</p>
+      <p>Menampilkan bisnis Anda di internet tidaklah sesulit yang Anda kira. Kami menyediakan beragam pilihan paket pembuatan website yang bisa disesuaikan dengan kebutuhan Anda saat ini. Dengan daftar sekarang, Anda juga bisa memperoleh nama website (domain) sesuai dengan nama bisnis Anda, gratis selama 1 tahun. Jangan biarkan kompetitor Anda mengambil langkah lebih dini.</p>
+      <a class="large success button" href="#" data-reveal-id="registerPackage" >Mulai Sekarang!</a>
+    </div>
+  </div>
+</div>
+
+<!-- Why -->
+<div id="stop3" class="home-section-why">
+  <div class="row">
+    <div class="inner">
+      <h3>Kenapa Harus Membuat Website</h3>
+      <p>Internet menghilangkan batasan waktu dan jarak. Inilah saatnya menampilkan keunggulan bisnis Anda kepada dunia. Kesempatan mengembangkan bisnis terbuka lebar dengan pasar yang lebih luas.</p>
+
+      <p>Pastikan Anda hadir 24 jam, kapan pun calon pelanggan mencari bisnis Anda di internet. Komunikasi antara Anda dan pelanggan kini tanpa batas kemampuan respon yang lebih cepat.</p>
+    </div>
+  </div>
+</div>
+
+<div id="stop4" class="row home-section-package odd">
+  <div class="four columns">
+    <div class=" start-create-web">
+      <h3>Mulai Membuat Website</h3>
+      <p>Jangan biarkan pesaing Anda melangkah lebih awal. Daftar sekarang dan mari mulai membuat website dengan mudah dan cepat! 
+      <!-- <a class="small success button" href="">Daftar Sekarang!</a> -->
+      </p>
+    </div>
+  </div>
+
+  <div class="eight columns">
+    <h3>Pilih Paket Sesuai Kebutuhan</h3>
+    <ul class="package">
+        <li class="package-dir"><a href="#" data-reveal-id="packageWebsite"><span></span>Online Directory<br>(Lihat Harga)</a></li>
+        <li class="package-web-std"><a href="#" data-reveal-id="packageWebsite"><span></span>Web Standard<br>(Lihat Harga)</a></li>
+        <li class="package-e-comm"><a href="#" data-reveal-id="packageWebsite"><span></span>Web e-Commerce<br>(Lihat Harga)</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row home-section-package even">
+  <div class="four columns">
+    <h3>Bagaiamana Bila Sudah Punya Website?</h3>
+    <p>Banyak cara yang dapat ditempuh agar bisnis Anda sukses di internet. Berdasar beberapa kasus yang ada, kami berusaha merumuskan rekomendasi dan solusi yang bisa Anda terapkan mulai hari ini!</p>
+  </div>
+
+  <div class="eight columns">
+    <h3>Bagaimana Mendapat Pelangggan dari Internet?</h3>
+    <ul class="marketing">
+      <li class="marketing-adwords">
+        <!-- LOGO: Google -->
+		<%= image_tag("logo_adwords.png", :alt => "Google Advertising" ) %>
+        <ul>
+          <li>Google Search Marketing</li>
+          <li>Google Display Advertising</li>
+        </ul>
+        <a href="#" data-reveal-id="packageMarketing" class="underline">Pelajari Lebih Lanjut »</a>
+      </li>
+      <li class="marketing-facebook">
+        <!-- LOGO: Facebook -->
+        <!-- <img src="../../../assets/images/logo-fb.png" alt="Facebook Advertising"> -->
+		<%= image_tag("logo-fb.png", :alt => "Facebook Advertising" ) %>	
+        <ul>
+          <li>Facebook Advertising</li>
+        </ul>
+        <a href="#" data-reveal-id="packageMarketing" class="underline">Pelajari Lebih Lanjut »</a>
+      </li>
+      <!-- LOGO: Google Individual Proffesional -->
+      <li class="marketing-google-prof">
+		<%= image_tag("logo-adwords-qual.png", :alt => "AdWords Qualified Individual" ) %>	
+        <!-- <img src="images/logo-adwords-qual.png" alt="AdWords Qualified Individual"> -->
+        <span>Campaign Anda dikelola oleh <strong>Google Qualified Professional</strong></li>
+    </ul>
+  </div>
+</div>
+
+<footer id="stop5">
+  <div class="row">
+    
+    <div class="four columns">
+      <div class="footer-contact-form">
+        <form>
+          <label>Nama</label>
+          <input type="text" placeholder="Nama Lengkap" />
+          <label>Email</label>
+          <input type="text" class="twelve" placeholder="Alamat email Anda" />
+          <label>Pesan</label>
+          <textarea placeholder="Tuliskan pesan Anda ..."></textarea>
+          <a class="secondary button" href="#">Kirim Pesan »</a>
+        </form>
+      </div>
+    </div><!-- Close 1st Column -->
+
+    <div class="four columns">
+      <div class="footer-about">
+        <h4>GrowLokal</h4>
+        <p>Kami memahami kesibukan Anda, karenanya GrowLokal hadir dengan solusi internet merketing yang sangat mudah diterapkan agar bisnis Anda suskes di media internet. Kami akan merumuskan rekomendasi yang tepat dan bisa Anda dijalankan mulai hari ini.</p>
+      </div>
+    </div>
+    
+    <div class="four columns">
+      <div class="footer-support">
+          <ul>
+            <li class="icon-call"><span></span>Call +62-21-893-234-876</li>
+            <li class="icon-skype"><!-- Skype -->GrowLokal</li>
+            <li class="icon-twitter"><!-- Twitter -->@GrowLokal</li>
+            <li class="icon-fb"><!-- Facebook -->GrowLokal</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row copyright"><p>&copy; 2012 GrowLokal Inc. All Rights Reserved</p></div>
+</footer>
+
+<!-- Modal 3 Rev -->
+<div id="packageWebsite" class="reveal-modal package-modal [expand, xlarge, large, medium, small]">
+
+  <h3>Paket Website</h3>
+  <div class='row'>
+    <div class="four columns">
+      <p><strong>Direktori Online</strong></p>
+      <p><span class="price">Rp. 750rb</span></p>
+      <a class="success button" href="#" data-reveal-id="registerPackage">Pilih »</a>
+     
+      <ul>
+        <li>Hosting</li>
+        <li>Copywritting</li>
+        <li>Free royalti photos</li>
+        <li>Mobile website hosting</li>
+        <li>Marketing &amp; Sales Report</li>
+        <li>IT Support</li>
+      </ul>
+
+    </div>
+
+    <div class="four columns">
+      <p><strong>Web Standard</strong></p>
+      <p class="price">Rp. 2.5jt</p>
+      <a class="success button" href="#" data-reveal-id="registerPackage">Pilih »</a>
+      <ul>
+        <li>Domain</li>
+        <li>High Speed Hosting</li>
+        <li>Email addresses up to 100GB</li>
+        <li>Product management system</li>
+        <li>Payment method; Bank Transfer</li>
+        <li>Marketing &amp; Sales Report</li>
+        <li>IT Support</li>
+        <li>Up to 10 products</li>
+        <li>Free Business Profile</li>
+      </ul>
+    </div>
+
+    <div class="four columns">
+      <p><strong>Web e-Commerce</strong></p>
+      <p class="price">Rp. 8jt</p>
+      <a class="success button" href="#" data-reveal-id="registerPackage">Pilih »</a>
+      <ul>
+        <li>Domain</li>
+        <li>High Speed Hosting</li>
+        <li>Email addresses up to 100GB</li>
+        <li>Product management system</li>
+        <li>Payment method; Bank Transfer</li>
+        <li>Marketing &amp; Sales Report</li>
+        <li>IT Support</li>
+        <li>Up to 10 products</li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+<!-- Modal 4 -->
+<div id="packageMarketing" class="reveal-modal package-modal [expand, xlarge, large, medium, small]">
+
+  <h3>Paket Marketing</h3>
+  <div class='row'>
+    <div class="four columns">
+      <p><strong>Lite</strong></p>
+      <p class="price">Rp. 1.5jt</p>
+      <a class="success button" href="#" data-reveal-id="marketingRegPackage">Pilih »</a>
+      <ul>
+        <li>Search marketing</li>
+        <li>Tracking &amp; Reporting</li>
+        <li>Support</li>
+      </ul>
+
+    </div>
+
+    <div class="four columns">
+      <p><strong>Plus</strong></p>
+      <p class="price">Rp. 3jt</p>
+      <a class="success button" href="#" data-reveal-id="marketingRegPackage">Pilih »</a>
+      <ul>
+        <li>Search marketing</li>
+        <li>Display advertising</li>
+        <li>Tracking &amp; Reporting</li>
+        <li>Support</li>
+        <li>Up to 3 Ad Creatives</li>
+      </ul>
+    </div>
+
+    <div class="four columns">
+      <p><strong>Pro</strong></p>
+      <p class="price">Rp. 6jt</p>
+      <a class="success button" href="#" data-reveal-id="marketingRegPackage">Pilih »</a>
+      <ul>
+        <li>Search marketing</li>
+        <li>Display advertising</li>
+        <li>Facebook advertising</li>
+        <li>Tracking &amp; Reporting</li>
+        <li>Support</li>
+        <li>Up to 5 Ad Creatives</li>
+        <li>Landing page optimization</li>
+        <li>Daily optimization</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="registerPackage" class="reveal-modal [expand, xlarge, large, medium, small]">
+  <h3>Yap! Mulai Bisnis Hari Ini</h3>
+  <form class="custom">
+    <!-- Nama -->
+    <label>Nama</label>
+    <input type="text" placeholder="Nama Lengkap" />
+    <!-- Email -->
+    <label>Email</label>
+    <input type="text" class="twelve" placeholder="Alamat email Anda" />
+    <!-- Pilih Paket -->
+    <div class="custom dropdown">
+      <a href="#" class="current">Pilih jenis paket</a>
+      <a href="#" class="selector"></a>
+      <ul>
+        <li>Paket Direktori Online</li>
+        <li>Paket Web Standard</li>
+        <li>Paket Web e-Commerce</li>
+      </ul>
+    </div>
+    <!-- Msg -->
+    <label>Pesan</label>
+    <textarea placeholder="Tuliskan pesan Anda ..."></textarea>
+    <a class="success button" href="#">Daftar Paket »</a>
+  </form>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+<div id="marketingRegPackage" class="reveal-modal [expand, xlarge, large, medium, small]">
+  <h3>Daftar Paket Marketing</h3>
+  <form class="custom">
+    <!-- Nama -->
+    <label>Nama</label>
+    <input type="text" placeholder="Nama Lengkap" />
+    <!-- Email -->
+    <label>Email</label>
+    <input type="text" class="twelve" placeholder="Alamat email Anda" />
+    <!-- Pilih Paket -->
+    <div class="custom dropdown">
+      <a href="#" class="current">Pilih jenis paket marketing</a>
+      <a href="#" class="selector"></a>
+      <ul>
+        <li>Paket marketing: Lite</li>
+        <li>Paket marketing: Plus</li>
+        <li>Paket marketing: Pro</li>
+      </ul>
+    </div>
+    <!-- Msg -->
+    <label>Pesan</label>
+    <textarea placeholder="Tuliskan pesan Anda ..."></textarea>
+    <a class="success button" href="#">Daftar Paket »</a>
+  </form>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
