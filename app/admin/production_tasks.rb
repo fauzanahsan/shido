@@ -20,10 +20,10 @@ ActiveAdmin.register ProductionTask do
   form do |f|                         
     f.inputs "Task Details" do
       f.input :order_id, :label => "Order ID", :as => :select,      :collection => Hash[Order.all.map{|b| [b.id, b.id]}]
-      f.input :staff_id, :label => "Staff Email", :as => :select,      :collection => Hash[AdminUser.all.map{|a| [a.email,a.id]}]  
+      f.input :staff_id, :label => "Assign To", :as => :select,      :collection => Hash[AdminUser.with_role("Web Officer").all.map{|a| [a.email,a.id]}]  
       f.input :task_name
       f.input :working_status, :as => :select,  :collection => ["new", "in progress", "draft", "revision", "completed", "cancel"]               
-      f.input :completed_date, :as => :date_select
+      f.input :completed_date, :as => :datepicker
     end                               
     f.buttons                         
   end

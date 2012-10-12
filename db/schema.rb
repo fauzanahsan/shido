@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924161614) do
+ActiveRecord::Schema.define(:version => 20121012171713) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -123,11 +123,11 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   create_table "campaign_tasks", :force => true do |t|
     t.integer  "staff_id"
     t.integer  "order_id",                       :null => false
-    t.string   "task_name",      :default => "", :null => false
     t.string   "working_status", :default => "", :null => false
     t.datetime "completed_date"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.text     "task_name",      :default => "", :null => false
   end
 
   add_index "campaign_tasks", ["order_id"], :name => "index_campaign_tasks_on_order_id"
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
     t.integer  "fee",                :limit => 8, :default => 0
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+    t.text     "notes",                           :default => ""
   end
 
   add_index "orders", ["sales_id"], :name => "index_orders_on_sales_id"
@@ -179,11 +180,11 @@ ActiveRecord::Schema.define(:version => 20120924161614) do
   create_table "production_tasks", :force => true do |t|
     t.integer  "staff_id"
     t.integer  "order_id",                       :null => false
-    t.string   "task_name",      :default => "", :null => false
     t.string   "working_status", :default => "", :null => false
     t.datetime "completed_date"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.text     "task_name",      :default => "", :null => false
   end
 
   add_index "production_tasks", ["order_id"], :name => "index_production_tasks_on_order_id"
