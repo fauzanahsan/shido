@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminRole do
-  menu :label => "Staff Roles", :parent => "Staff Management", :if => proc{ current_admin_user.has_role? ("Admin") }
+  menu :label => "Staff Roles", :parent => "Staff Management", :if => proc{ can?(:manage, AdminRole)  }
  
   controller.authorize_resource
                                       

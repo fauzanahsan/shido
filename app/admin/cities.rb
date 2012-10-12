@@ -1,5 +1,5 @@
 ActiveAdmin.register City do
-  menu :parent => "Location", :if => proc { current_admin_user.has_role?("Admin") } 
+  menu :parent => "Location", :if => proc { can?(:manage, City) } 
   controller.authorize_resource
   
   form do |f|                         

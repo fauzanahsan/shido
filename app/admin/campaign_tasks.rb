@@ -1,6 +1,5 @@
 ActiveAdmin.register CampaignTask do
-  menu :parent => "Campaign", :if => proc{ current_admin_user.has_role? ("Account Manager") } 
-  menu :parent => "Campaign", :else => proc{ current_admin_user.has_role? ("Admin") } 
+  menu :parent => "Campaign", :if => proc{ can?(:manage, CampaignTask) } 
                        
   controller.authorize_resource
   

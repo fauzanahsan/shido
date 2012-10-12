@@ -1,7 +1,5 @@
 ActiveAdmin.register User do
-  menu :if => proc { current_admin_user.has_role?("Account Manager") } 
-  menu :else => proc { current_admin_user.has_role?("Admin") } 
-  
+  menu :label => "Clients", :if => proc { can?(:manage, User)  }
   controller.authorize_resource
   
   filter :email

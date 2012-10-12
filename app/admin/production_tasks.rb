@@ -1,10 +1,5 @@
 ActiveAdmin.register ProductionTask do
-  # menu :if => proc{ current_admin_user.has_role? (:admin) } ||
-  #               proc{ current_admin_user.has_role? (:account_manager) }
-  #menu :if => proc{ can?(:manage, ProductionTask)  }
-  menu :parent => "Production", :if => proc{ current_admin_user.has_role? ("Account Manager") } 
-  menu :parent => "Production", :else => proc{ current_admin_user.has_role? ("Admin") } 
-                       
+  menu :parent => "Production", :if => proc{ can?(:manage, ProductionTask) } 
   controller.authorize_resource
   
   filter :task_name

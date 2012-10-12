@@ -1,5 +1,5 @@
 ActiveAdmin.register CampaignPackage do
-  menu :parent => "Campaign", :if => proc { current_admin_user.has_role?("Admin") } 
+  menu :parent => "Campaign", :if => proc { can?(:manage, CampaignPackage) } 
   controller.authorize_resource
   
 end
