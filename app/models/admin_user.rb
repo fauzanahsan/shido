@@ -4,13 +4,13 @@ class AdminUser < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   
-  ROLES = ["Admin", "Sales", "Account Manager"]
+  ROLES = ["Admin", "Sales", "Account Manager", "Web Officer", "Campaign Officer", "Finance"]
   
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids #, :as => :admin
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :as => :admin
   # attr_accessible :title, :body
   
   def account_manager

@@ -9,7 +9,11 @@ class Business < ActiveRecord::Base
   
   attr_accessible :company_name, :contact_person, :detail, :office_phone1, :office_phone2, :mobile_phone1, :mobile_phone2,
                   :region, :city, :address, :biz_name, :products_services, :user_id, :account_manager_id, :latitude, :longitude,
-                  :category_ids  
+                  :category_ids, :as => :admin
+  
+  attr_accessible :company_name, :contact_person, :detail, :office_phone1, :office_phone2, :mobile_phone1, :mobile_phone2,
+                  :region, :city, :address, :biz_name, :products_services, :user_id, :account_manager_id, :latitude, :longitude,
+                  :category_ids, :as => :admin
 
 
   def gmaps4rails_address

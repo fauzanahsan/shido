@@ -18,7 +18,6 @@ ActiveAdmin.register Order do
     column ("Account Manager") {|order| order.account_manager_id.blank? ? "" : AdminUser.find(order.account_manager_id).email }
     column("Fee")  {|order| number_to_currency order.fee }
     column :created_at
-    column :updated_at
     default_actions
   end
   

@@ -33,5 +33,19 @@ class AdminAbility
       can :manage, ProductionTask
       can :manage, User
     end
+    
+    if admin_user.has_role? "Web Officer"
+      can :manage, ProductionTask
+    end
+    
+    if admin_user.has_role? "Campaign Officer"
+      can :manage, CampaignTask
+    end
+    
+    if admin_user.has_role? "Finance"
+      can :manage, Order
+    end
+    
+    
   end
 end

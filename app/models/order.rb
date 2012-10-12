@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   has_many :campaign_tasks
   
   attr_accessible :user_id, :sales_id, :account_manager_id, :sales_status, :order_date, :fee, :campaign_package_ids, 
-                  :web_package_ids #, :as => :admin
+                  :web_package_ids, :as => :admin
   
   
 end
