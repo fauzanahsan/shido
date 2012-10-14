@@ -4,7 +4,7 @@ ActiveAdmin.register AdminRole do
   controller.authorize_resource
   
   form do |f|                         
-    f.inputs "Order Details" do
+    f.inputs "Role Details" do
       f.input :name
     end
     f.buttons   
