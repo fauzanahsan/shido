@@ -15,6 +15,7 @@ class Business < ActiveRecord::Base
                   :region, :city, :address, :biz_name, :products_services, :user_id, :account_manager_id, :latitude, :longitude,
                   :category_ids, :as => :admin
 
+  after_create :set_account_manager                
 
   def gmaps4rails_address
     "#{self.address}, #{self.city}, #{self.region}" 
@@ -27,6 +28,11 @@ class Business < ActiveRecord::Base
   
   def manage_business?(account_manager_id)
     self.account_manager_id == account_manager_id
+  end
+  
+  def set_account_manager
+    self.account_manager_id = self.user.account_manager_id
+    save
   end
   
                   

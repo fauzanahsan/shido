@@ -32,7 +32,7 @@ ActiveAdmin.register Business do
   form do |f| 
     f.inputs do                        
       f.input :user_id, :as => :select,      :collection => Hash[User.all.map{|u| [u.email,u.id]}]   
-      f.input :account_manager_id, :as => :select,      :collection => Hash[AdminUser.with_role("Account Manager").all.map{|a| [a.email,a.id]}]   
+      #f.input :account_manager_id, :as => :select,      :collection => Hash[AdminUser.with_role("Account Manager").all.map{|a| [a.email,a.id]}]   
       f.input :company_name
       f.input :biz_name, :label => "Business Name (Identifier)"
       if f.object.new_record?

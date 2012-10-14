@@ -23,7 +23,7 @@ ActiveAdmin.register ProductionTask do
       f.input :staff_id, :label => "Assign To", :as => :select,      :collection => Hash[AdminUser.with_role("Web Officer").all.map{|a| [a.email,a.id]}]  
       f.input :task_name
       f.input :working_status, :as => :select,  :collection => ["new", "in progress", "draft", "revision", "completed", "cancel"]               
-      f.input :completed_date, :as => :datepicker
+      f.input :completed_date,  :as => :datepicker #:as => :datetime_picker, :input_html => { :placeholder => "YYYY-MM-DD HH:MM", :size => 30 } #:as => :datetime_picker, :input_html => { :size => 20 }
     end                               
     f.buttons                         
   end

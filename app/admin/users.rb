@@ -26,6 +26,7 @@ ActiveAdmin.register User do
       f.input :phone               
       f.input :password               
       f.input :password_confirmation
+      f.input :account_manager_id, :as => :select,      :collection => Hash[AdminUser.with_role("Account Manager").all.map{|a| [a.email,a.id]}] 
     end                               
     f.buttons                         
   end

@@ -7,6 +7,7 @@ gem 'rails', '3.2.7'
 
 gem 'pg'
 gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
+#gem 'ui_datepicker_rails3', :git => 'https://github.com/kristianmandrup/ui_datepicker-rails3.git'
 
 
 # Authentication

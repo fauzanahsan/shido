@@ -8,10 +8,11 @@ class User < ActiveRecord::Base
          :timeoutable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :phone, :fullname, :password, :password_confirmation, :remember_me, :as => :admin
+  attr_accessible :email, :phone, :fullname, :password, :password_confirmation, :remember_me, :account_manager_id, :as => :admin
   attr_accessible :email, :phone, :fullname, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   
-  has_many :orders
-  has_many :businesses
+  has_many :orders, :dependent => :destroy
+  has_many :businesses, :dependent => :destroy
+  
 end
