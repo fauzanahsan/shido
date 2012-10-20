@@ -10,7 +10,6 @@ ActiveAdmin.register ProductionTask do
     column("Order ID") { |task| link_to("#{task.order_id}", admin_order_path(task.order_id) )  }
     column("Staff Email") {|task| AdminUser.find_by_id(task.staff_id).email }
     column :title                     
-    column :task_name        
     column :working_status
     column :updated_at           
     column :created_at
