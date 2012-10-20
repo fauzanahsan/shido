@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014145532) do
+ActiveRecord::Schema.define(:version => 20121020074133) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20121014145532) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.text     "task_name",      :default => "", :null => false
+    t.string   "title",          :default => ""
   end
 
   add_index "campaign_tasks", ["order_id"], :name => "index_campaign_tasks_on_order_id"
@@ -185,6 +186,7 @@ ActiveRecord::Schema.define(:version => 20121014145532) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.text     "task_name",      :default => "", :null => false
+    t.string   "title",          :default => ""
   end
 
   add_index "production_tasks", ["order_id"], :name => "index_production_tasks_on_order_id"

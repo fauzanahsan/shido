@@ -15,7 +15,7 @@ ActiveAdmin.register Order do
     column("User"){|order| order.user.email }
     column :sales_status
     column ("Sales") {|order| order.sales_id.blank? ? "" : AdminUser.find(order.sales_id).email }
-    column ("Account Manager") {|order| order.account_manager_id.blank? ? "" : AdminUser.find(order.account_manager_id).email }
+    column ("Account Manager") {|order| order.am_info }
     column("Fee")  {|order| number_to_currency order.fee }
     column :created_at
     default_actions
@@ -34,7 +34,8 @@ ActiveAdmin.register Order do
       end
       
       row :account_manager do
-        order.account_manager_id.blank? ? "" : AdminUser.find(order.account_manager_id).email
+        #order.account_manager_id.blank? ? "" : AdminUser.find(order.account_manager_id).email
+        order.am_info
       end
       
       row :web_package do
