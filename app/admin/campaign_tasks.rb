@@ -13,7 +13,8 @@ ActiveAdmin.register CampaignTask do
     column :title   
     column :task_name        
     column :working_status
-    column :updated_at           
+    column :target_date   
+    column :completed_date
     column :created_at
     default_actions                   
   end
@@ -23,9 +24,13 @@ ActiveAdmin.register CampaignTask do
       f.input :order_id, :label => "Order ID", :as => :select,      :collection => Hash[Order.all.map{|b| [b.id, b.id]}]
       f.input :staff_id, :label => "Assign To", :as => :select,      :collection => Hash[AdminUser.with_role("Campaign Officer").all.map{|a| [a.email,a.id]}]  
       f.input :title
-      f.input :task_name
-      f.input :working_status, :as => :select,  :collection => ["new", "in progress", "draft", "revision", "completed", "cancel"]               
-      f.input :completed_date, :as => :datepicker
+      f.input :task_name             
+      if f.object.new_record?
+        f.input :target_date, :label => "Target Finish Date",  :as => :datepicker
+      else
+        f.input :working_status, :as => :select,  :collection => ["new", "in progress", "draft", "revision", "completed", "cancel"]  
+        f.input :completed_date,  :as => :datepicker
+      end
     end                               
     f.buttons                         
   end
@@ -33,7 +38,7 @@ ActiveAdmin.register CampaignTask do
   show do |task|
     attributes_table do
       row "Order ID" do
-        task.id
+        task.order.id
       end 
       row "Assign To" do
         AdminUser.find_by_id(task.staff_id).email
@@ -45,8 +50,8 @@ ActiveAdmin.register CampaignTask do
         raw task.task_name.gsub(/\n/, '<br/>')
       end
       row :working_status
-      row :completed_date
-      row :updated_at           
+      row :target_date
+      row :completed_date        
       row :created_at
     end
     active_admin_comments
