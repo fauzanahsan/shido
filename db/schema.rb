@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020074133) do
+ActiveRecord::Schema.define(:version => 20121020081310) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -177,6 +177,14 @@ ActiveRecord::Schema.define(:version => 20121020074133) do
 
   add_index "orders", ["sales_id"], :name => "index_orders_on_sales_id"
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
+
+  create_table "production_task_photos", :force => true do |t|
+    t.integer  "production_task_id"
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "production_tasks", :force => true do |t|
     t.integer  "staff_id"

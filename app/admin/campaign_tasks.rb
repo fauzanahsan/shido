@@ -8,7 +8,7 @@ ActiveAdmin.register CampaignTask do
   filter :completed_date
   
   index do                            
-    column :order_id
+    column("Order ID") { |task| link_to("#{task.order_id}", admin_order_path(task.order_id) )  }
     column("Staff Email") {|task| AdminUser.find_by_id(task.staff_id).email }                     
     column :title   
     column :task_name        

@@ -7,7 +7,7 @@ ActiveAdmin.register ProductionTask do
   filter :completed_date
   
   index do                            
-    column :order_id
+    column("Order ID") { |task| link_to("#{task.order_id}", admin_order_path(task.order_id) )  }
     column("Staff Email") {|task| AdminUser.find_by_id(task.staff_id).email }
     column :title                     
     column :task_name        
@@ -18,7 +18,7 @@ ActiveAdmin.register ProductionTask do
     default_actions                   
   end
   
-  form do |f|                         
+  form(:html => { :multipart => true }) do |f|                    
     f.inputs "Task Details" do
       f.input :order_id, :label => "Order ID", :as => :select,      :collection => Hash[Order.all.map{|b| [b.id, b.id]}]
       f.input :staff_id, :label => "Assign To", :as => :select,      :collection => Hash[AdminUser.with_role("Web Officer").all.map{|a| [a.email,a.id]}]  
@@ -26,7 +26,15 @@ ActiveAdmin.register ProductionTask do
       f.input :task_name
       f.input :working_status, :as => :select,  :collection => ["new", "in progress", "draft", "revision", "completed", "cancel"]               
       f.input :completed_date,  :as => :datepicker #:as => :datetime_picker, :input_html => { :placeholder => "YYYY-MM-DD HH:MM", :size => 30 } #:as => :datetime_picker, :input_html => { :size => 20 }
-    end                               
+    end
+    
+    # f.inputs "Image" do
+    #       f.semantic_fields_for :production_task_photos do |s|
+    #         #s.file_field :images
+    #         s.input :image, :as => :file
+    #       end
+    #     end
+                                     
     f.buttons                         
   end
   
@@ -46,8 +54,18 @@ ActiveAdmin.register ProductionTask do
       end
       row :working_status
       row :completed_date
-      row :updated_at           
       row :created_at
+      
+      row 'Production Task Images' do
+        table_for task.production_task_photos do
+          column("Link") { |task_photo| link_to File.basename(task_photo.image.path), "#{task_photo.image}" }  
+        end
+      end
+      
+      row ' ' do
+        link_to("New Documents", new_admin_production_task_photo_path(:task_id => task.id), :method => :get, :class => "button")
+      end
+      
     end
     active_admin_comments
   end
