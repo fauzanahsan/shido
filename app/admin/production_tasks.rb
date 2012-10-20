@@ -58,7 +58,9 @@ ActiveAdmin.register ProductionTask do
       
       row 'Production Task Images' do
         table_for task.production_task_photos do
-          column("Link") { |task_photo| link_to File.basename(task_photo.image.path), "#{task_photo.image}" }  
+          column("Name") { |task_photo| task_photo.name }
+          column("Link") { |task_photo| link_to File.basename(task_photo.image.path), "#{task_photo.image}" } 
+          column("Action") { |task_photo| link_to("Delete", delete_doc_admin_production_task_path(:doc_id => task_photo.id, :task_id => task.id), :method => :put)  }  
         end
       end
       
@@ -68,6 +70,13 @@ ActiveAdmin.register ProductionTask do
       
     end
     active_admin_comments
+  end
+  
+  member_action :delete_doc, :method => :put do
+    ptask_doc = ProductionTaskPhoto.find(params[:doc_id])
+    ptask_doc.destroy
+    flash[:notice] = "Success Deleted"
+    redirect_to admin_production_task_path(params[:task_id])
   end
   
 end
